@@ -1,0 +1,30 @@
+<div style="text-align:center">
+  <h1>
+    Crawler
+  </h1>
+</div>
+<div>
+  <div>
+    <form [formGroup]="idSearchForm" (ngSubmit)="getDemandsByName()" class="form-content">
+      <input #searchUser type="string" formControlName="searchDemand" id="searchDemand" >
+      <button type="submit" class="btn btn-primary btn-block btn-lg">Consulta Nombre</button>
+    </form>
+
+    <table *ngIf="hayDatos">
+      <thead>
+          <tr>
+          <th *ngFor = "let column of headers">
+            {{column}}
+          </th>
+          </tr>
+      </thead>
+        <tr *ngFor='let demand of demands'>
+          <td>{{demand.name}}</td>
+          <td>{{demand.location}}</td>
+          <td>{{demand.versus}}</td>
+          <td>{{demand.num}}</td>
+          <td>{{demand.actor}}</td>
+          <td>{{demand.defendant}}</td>
+        </tr>
+    </table>
+  </div>
